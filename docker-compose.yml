@@ -1,0 +1,30 @@
+version: "3"
+services:
+  api:
+    image: "node:8"
+    working_dir: /home/node/app
+    build: ./api/nw-api
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./api/nw-api:/home/node/app
+    ports:
+      - 8000:3000
+    command: bash -c "npm install && npm start"
+
+  db:
+    image: postgres:11.1
+    volumes:
+      - ./postgresql/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${DB_DATABASE}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8
+    healthcheck:
+      test: "pg_isready -h localhost -p 5432 -q -U postgres"
+      interval: 3s
+      timeout: 1s
+      retries: 10
+    ports:
+      - 5432:5432
