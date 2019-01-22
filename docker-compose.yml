@@ -3,7 +3,6 @@ services:
   api:
     image: "node:8"
     working_dir: /home/node/app
-    # build: ./api/nw-api
     environment:
       - NODE_ENV=production
     volumes:
