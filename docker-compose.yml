@@ -16,9 +16,9 @@ services:
     volumes:
       - ./postgresql/data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=${DB_DATABASE}
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=new-wicam
+      - POSTGRES_USER=honeykers
+      - POSTGRES_PASSWORD=barkthefuture
       - POSTGRES_INITDB_ARGS=--encoding=UTF-8
     healthcheck:
       test: "pg_isready -h localhost -p 5432 -q -U postgres"
