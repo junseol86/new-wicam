@@ -1,5 +1,6 @@
 
 .env
+/nginx
 postgresql/data/*
 api/nw-api/node_modules
 docker-compose.yml
