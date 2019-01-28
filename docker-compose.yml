@@ -9,6 +9,8 @@ services:
       - ./api/nw-api:/home/node/app
     ports:
       - 8000:3000
+    networks:
+      - backend
     command: bash -c "npm install && npm start"
 
   db:
@@ -27,6 +29,8 @@ services:
     #   retries: 10
     ports:
       - 5432:5432
+    networks:
+      - backend
 
   webvserver:
     image: nginx:latest
@@ -35,3 +39,9 @@ services:
     ports:
     - "80:80"
     command: /bin/bash -c "exec nginx -g 'daemon off;'"
+    networks:
+      - backend
+
+networks: # 가장 기본적인 bridge 네트워크
+  backend:
+    driver: bridge
