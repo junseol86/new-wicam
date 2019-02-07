@@ -11,7 +11,7 @@ services:
       - 8000:3000
     networks:
       - backend
-    command: bash -c "npm install && npm start"
+    command: bash -c "npm install && npm run-script build-ts && npm start"
 
   db:
     image: postgres:11.1
