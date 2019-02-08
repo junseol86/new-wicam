@@ -18,6 +18,7 @@ const app = express_1.default();
 app.set("port", process.env.PORT || 3000);
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: true }));
-app.get("/", homeController.index);
+app.get("/api", homeController.index);
+app.get("api/test", homeController.index);
 exports.default = app;
 //# sourceMappingURL=app.js.map
