@@ -19,6 +19,6 @@ app.set("port", process.env.PORT || 3000);
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: true }));
 app.get("/api", homeController.index);
-app.get("api/test", homeController.index);
+app.get("/api/test", homeController.postgresTest);
 exports.default = app;
 //# sourceMappingURL=app.js.map

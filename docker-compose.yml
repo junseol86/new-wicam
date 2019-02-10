@@ -7,6 +7,8 @@ services:
       - NODE_ENV=production
     volumes:
       - ./api/nw-api:/home/node/app
+    environment:
+      -  DB_CONNECT=postgresql://honeykers:barkthefuture@db:5432/new-wicam
     ports:
       - 8000:3000
     networks:
